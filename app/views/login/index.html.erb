@@ -1,0 +1,46 @@
+<!-- <h1>Login#index</h1>
+<p>Find me in app/views/login/index.html.erb</p>
+ -->
+
+
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>ログイン</title>
+    </head>
+    <body>
+        <h1>ログイン</h1>
+        <hr>      
+        <div align="center">
+        <% if @msg != '' %>
+          <p><%= @msg %></p>
+        <% end %>  
+            <table border="0">
+                <%= form_for(@user, :url => {:action => :check}) do |f| %>
+                    <tr>
+                        <th>
+                            <%= f.label 'UserName' %>
+                        </th>
+                        <td>
+                            <%= f.text_field :name %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <%= f.label 'Password' %>
+                        </th>
+                        <td>
+                            <%= f.text_field :password %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="ログイン">
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+            <%= link_to 'New User', new_user_path %>
+        </div>
+    </body>
+</html>
